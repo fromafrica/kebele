@@ -14,7 +14,8 @@ process.on('SIGINT', () => {
 try {
     yargs(hideBin(process.argv))
     .scriptName("kebele")
-    .command(commands.init)
+    .command(commands.config)
+    .command(commands.add)
     .command(commands.status)
     .demandCommand(0)
     .help()

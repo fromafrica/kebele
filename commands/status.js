@@ -1,9 +1,10 @@
+// @ts-nocheck
 import fetch from 'node-fetch'
 import chalk from 'chalk'
 
 export default {
     command: ['status'],
-    describe: 'Check on containers & tasks',
+    describe: 'list all docker containers',
     handler:  async () => {
         try {
             try {

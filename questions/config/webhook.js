@@ -2,9 +2,10 @@ import inquirer from 'inquirer';
 
 export default async function () {
     const answer = await inquirer.prompt({
+        type: 'list',
         name: 'result',
-        message: 'Container URL:',
-        default: 'ghcr.io/fromafrica/hello-world-docker',
+        message: 'Send webhook on container update:',
+        choices: ['No', 'Yes']
     });
 
     return answer;

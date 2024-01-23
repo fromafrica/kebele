@@ -1,7 +1,9 @@
-import init from "./init.js"
+import config from "./config.js"
+import add from "./add.js"
 import status from "./status.js"
 
 export {
-    init,
+    config,
+    add,
     status
 }
