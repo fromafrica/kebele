@@ -3,7 +3,7 @@ import name from './add/name.js'
 import url from './add/url.js'
 import ePort from './add/ePort.js'
 import iPort from './add/iPort.js'
-import addEnv from './add/addEnv.js'
+import update from './add/update.js'
 import cron from './add/cron.js'
 
 // config
@@ -16,7 +16,7 @@ export {
     url,
     ePort,
     iPort,
-    addEnv,
+    update,
     cron,
     webhook,
     webhookUrl

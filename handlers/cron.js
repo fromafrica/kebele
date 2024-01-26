@@ -1,11 +1,10 @@
 import { createSpinner } from 'nanospinner'
-
-const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms))
+import * as core from '../core/index.js'
 
 export default async function (config) {
     const spinner = createSpinner('running...').start()
 
-    await sleep(500)
+    await core.sleep(500)
 
     spinner.success({ text: 'Ok'})
 
