@@ -1,6 +1,6 @@
 {
   "name": "kebele",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "simple management of docker containers",
   "type": "module",
   "bin": "kebele.js",
@@ -11,6 +11,7 @@
     "kebele",
     "fromafrica",
     "from africa with love",
+    "fromafricawithlove",
     "kb",
     "docker",
     "containers",

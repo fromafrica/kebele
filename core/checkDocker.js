@@ -1,26 +1,37 @@
-import net from 'net'
+import http from 'http'
 
-export default async function checkDocker(timeout = 2000) {
+export default async function (timeout = 2000) {
     return new Promise((resolve, reject) => {
-        const socket = new net.Socket()
+        const socketPath = '/var/run/docker.sock'
 
-        socket.setTimeout(timeout)
+        // Define the request options
+        const requestOptions = {
+            socketPath,
+            path: '/_ping', // Use a Docker API endpoint for health check
+            method: 'GET',
+        }
 
-        socket.on('connect', () => {
-            socket.destroy()
-            resolve(true) // Successfully connected
+        // Create an HTTP request
+        const req = http.request(requestOptions)
+
+        // Set a timeout for the request
+        req.setTimeout(timeout)
+
+        // Handle the response
+        req.on('response', (res) => {
+            if (res.statusCode === 200) {
+                resolve(true) // Successfully connected
+            } else {
+                reject(new Error(`Failed to connect, status code: ${res.statusCode}`))
+            }
         })
 
-        socket.on('timeout', () => {
-            socket.destroy()
-            reject(new Error('Connection timeout'))
-        })
-
-        socket.on('error', (err) => {
-            socket.destroy()
+        // Handle request errors
+        req.on('error', (err) => {
             reject(err)
         })
 
-        socket.connect(2375, "127.0.0.1")
+        // Send the request
+        req.end()
     })
 }

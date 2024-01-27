@@ -10,6 +10,7 @@ import runner from "./runner.js";
 import detect from "./detect.js";
 import checkDocker from "./checkDocker.js";
 import validateUrl from './validateUrl.js';
+import dockerRequest from './dockerRequest.js';
 
 // small exports
 const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -34,5 +35,6 @@ export {
     dbPath,
     db,
     checkDocker,
-    validateUrl
+    validateUrl,
+    dockerRequest
 }

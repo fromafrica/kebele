@@ -33,9 +33,9 @@ think of it as an easy way to interface with `docker` & `cron`
 - [ ] Windows
 
 ## security
-communication with docker is done by enabling the REST API on TCP port 2375. 
+communication with docker is done over its unix socket, **you do not need to enable http on port 2375**.
 
-this poses security concerns if exposed to the public internet and without other security configuration in place. 
+docker API poses security concerns if your server is exposed to public internet without security protections in place.
 
 the `config` wizard will do what it can to detect environment settings and suggest changes.
 
