@@ -1,5 +1,3 @@
-# kebele
-
 a simple way to start docker containers and watch for updates to the source image
 
 think of it as an easy way to interface with `docker` & `cron`
